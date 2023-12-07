@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       WooEasy Invoice
+ * Plugin Name:       Woo Easy Invoice
  * Plugin URI:        https://bestwpdeveloper.com/woo-easy-invoice/
  * Description:       Effortless invoice printing on WooCommerce thank-you pages for simplified order tracking.
  * Version:           1.0
