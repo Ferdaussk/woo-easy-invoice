@@ -1,19 +1,11 @@
-// woeic-popup-script.js
+// Function to open the popup
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+}
 
-document.getElementById('popupContainer').addEventListener('click', function(event) {
-    if (event.target === this) {
-        this.style.display = 'none';
-    }
-});
-jQuery(document).ready(function ($) {
-    $('#downloadButton').on('click', function () {
-        // Show the popup when the "Download Invoice" button is clicked
-        $('#popupContainer').fadeIn();
-    });
-
-    // Close the popup when the "Print" button is clicked
-    $('#printButton').on('click', function () {
-        $('#popupContainer').fadeOut();
-    });
-});
-
+// Function to close the popup
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}

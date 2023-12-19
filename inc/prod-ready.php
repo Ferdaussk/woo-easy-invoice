@@ -31,8 +31,9 @@ class ClassProdWCLSR{
     }
 
     public function woeic_thankyou_page1($order_id){
-        echo '<button id="downloadButton"><i class="fa-solid fa-download"></i>'.esc_html__('Download Invoice', 'woo-easy-invoice').'</button>';
-        echo '<div id="popupContainer" class="popup-container">';
+        echo '<button id="downloadButton" onclick="openPopup()"><i class="fa-solid fa-download"></i>'.esc_html__('Download Invoice', 'woo-easy-invoice').'</button>';
+        echo '<div id="popup" class="popup-container">';
+        echo '<span class="close" onclick="closePopup()">&times;</span>';
             echo '<div class="popup-content">';
                 echo '<div class="print-btn">';
                     echo '<button id="printButton"><i class="fa-solid fa-print"></i>'.esc_html__('Print', 'woo-easy-invoice').'</button>';
@@ -135,6 +136,7 @@ class ClassProdWCLSR{
                 echo '</div>';
             echo '</div>';
         echo '</div>';
+        echo '<div id="overlay" class="overlay"></div>';
     }
 
     public function woeic_thankyou_page($order_id){
