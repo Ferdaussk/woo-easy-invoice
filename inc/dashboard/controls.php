@@ -1,0 +1,215 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+add_settings_field(
+  'woeic-check-products-taxo-widget',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimass-presets',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-top-title-check',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-shipimg-check',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+// Taxos label check
+add_settings_field(
+  'woeic-checkout-page-check',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+// controls
+// *** estimass
+add_settings_field(
+  'woeic-estimass-color',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimass-bgcolor',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimass-fontsize',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimass-fontweight',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimass-fontfamilly',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+// headline bg
+add_settings_field(
+  'woeic-estimass-bgcolor5',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-reason-box-shadow5',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-reason-border-radius5',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+//
+add_settings_field(
+  'woeic-estimdate-color',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimdate-bgcolor',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+
+// *** dimensions
+add_settings_field(
+  'woeic-estimdate-fontsize',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimdate-fontweight',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+add_settings_field(
+  'woeic-estimdate-fontfamilly',
+  '',
+  'woeic_plugin_function_for_datas_callback',
+  'woeic-plugin-main-menu',
+  'woeic-plugin-switch-section'
+);
+
+// Register Settings all
+register_setting(
+  'woeic-plugin-settings', 
+  'woeic-check-products-taxo-widget' 
+);
+register_setting(
+  'woeic-plugin-settings', 
+  'woeic-estimass-presets' 
+);
+register_setting(
+  'woeic-plugin-settings', 
+  'woeic-top-title-check' 
+);
+register_setting(
+  'woeic-plugin-settings', 
+  'woeic-shipimg-check' 
+);
+// Taxos label check
+register_setting(
+  'woeic-plugin-settings', 
+  'woeic-checkout-page-check' 
+);
+// controls
+// *** estimass
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimass-color'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimass-bgcolor'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimass-fontsize'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimass-fontweight'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimass-fontfamilly'
+);
+// headline bg
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimass-bgcolor5'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-reason-box-shadow5'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-reason-border-radius5'
+);
+// *** estimdate
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimdate-color'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimdate-bgcolor'
+);
+// *** estimdate
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimdate-fontsize'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimdate-fontweight'
+);
+register_setting(
+  'woeic-plugin-settings',
+  'woeic-estimdate-fontfamilly'
+);

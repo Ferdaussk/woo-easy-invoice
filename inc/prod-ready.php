@@ -3,7 +3,7 @@ namespace ProdWCLSR;
 if (!defined('ABSPATH')) exit;
 use ProdWCLSR\PageSettings\Page_Settings;
 define("WCLSR_ASFSK_ASSETS_PUBLIC_DIR_FILE", plugin_dir_url(__FILE__) . "../assets/public");
-define("WCLSR_ASFSK_ASSETS_ADMIN_DIR_FILE", plugin_dir_url(__FILE__) . "assets/admin");
+define("WCLSR_ASFSK_ASSETS_ADMIN_DIR_FILE", plugin_dir_url(__FILE__) . "../assets/admin");
 
 class ClassProdWCLSR{
     private static $_instance = null;
@@ -15,6 +15,96 @@ class ClassProdWCLSR{
         return self::$_instance;
     }
 
+	public function woeic_all_assets_for_the_admin(){
+        wp_enqueue_script( 'woeic-script', plugin_dir_url( __FILE__ ) . '../assets/admin/script.js', array('jquery'), '1.0', true );
+        wp_enqueue_style( 'woeic-order', plugin_dir_url( __FILE__ ) . '../assets/admin/order.css', null, '1.0', 'all' );
+		if (isset($_GET['page']) && $_GET['page'] === 'get-woo-easy-invoice') {
+            wp_enqueue_script( 'woeic-wheelcolorpicker', plugin_dir_url( __FILE__ ) . '../assets/admin/colorpicker/jquery.wheelcolorpicker.js', array('jquery'), '1.0', true );
+            $all_css_js_file = array(
+                'woeic-style' => array('woeic_path_define'=>WCLSR_ASFSK_ASSETS_ADMIN_DIR_FILE . '/style.css'),
+                'woeic-wheelcolorpicker' => array('woeic_path_define'=>WCLSR_ASFSK_ASSETS_ADMIN_DIR_FILE . '/colorpicker/wheelcolorpicker.css'),
+            );
+            foreach($all_css_js_file as $handle => $fileinfo){
+                wp_enqueue_style( $handle, $fileinfo['woeic_path_define'], null, '1.0', 'all');
+            }
+        }
+	}
+
+	public function woeic_admin_menu_test(){
+		if(current_user_can('manage_options')){
+			add_menu_page(
+				esc_html__('Woo Easy Invoice', 'woo-easy-invoice'),
+				esc_html__('Woo Easy Invoice', 'woo-easy-invoice'),
+				'manage_options',
+				'get-woo-easy-invoice',
+				array($this, 'woeic_plugin_submenu_about_plugin_page'),
+				'dashicons-printer',
+				58
+			);
+		}
+    add_action('admin_init', array($this, 'woeic_admin_controls'));
+	}
+
+    public function woeic_admin_controls() {
+        include __DIR__ . '/dashboard/controls.php';
+    }
+
+	public function woeic_plugin_submenu_about_plugin_page() {
+        include __DIR__ . '/dashboard/dashboard-style.php';
+    }
+    
+    public function woeic_plugin_function_for_datas_callback() {}
+
+    public function woeic_taxoes_styles(){
+        // *** estimdate
+        $woeic_estimdate_color_value = get_option( 'woeic-estimdate-color');
+        $woeic_estimdate_bgcolor_value = get_option( 'woeic-estimdate-bgcolor');
+        $woeic_estimdate_fontsize_value = get_option( 'woeic-estimdate-fontsize');
+        $woeic_estimdate_fontweight_value = get_option( 'woeic-estimdate-fontweight');
+        $woeic_estimdate_fontfamilly_value = get_option( 'woeic-estimdate-fontfamilly');
+        // *** estimass
+        $woeic_estimass_color_value = get_option( 'woeic-estimass-color');
+        $woeic_estimass_bgcolor_value = get_option( 'woeic-estimass-bgcolor');
+        $woeic_estimass_fontsize_value = get_option( 'woeic-estimass-fontsize');
+        $woeic_estimass_fontweight_value = get_option( 'woeic-estimass-fontweight');
+        $woeic_estimass_fontfamilly_value = get_option( 'woeic-estimass-fontfamilly');
+        // headline bg
+        $woeic_estimass_bgcolor5_value = get_option( 'woeic-estimass-bgcolor5' );
+        $woeic_estimass_box_shadow5_value = get_option( 'woeic-reason-box-shadow5' );
+        $woeic_estimass_radius5_value = get_option( 'woeic-reason-border-radius5' );
+        $html = "<style>
+        #printButton{
+            color:{$woeic_estimdate_color_value} !important;
+            background-color:{$woeic_estimdate_bgcolor_value} !important;
+            font-size:{$woeic_estimdate_fontsize_value} !important;
+            font-weight:{$woeic_estimdate_fontweight_value} !important;
+            font-family:{$woeic_estimdate_fontfamilly_value} !important;
+        }
+        #downloadButton{
+            color:{$woeic_estimass_color_value} !important;
+            background-color:{$woeic_estimass_bgcolor_value} !important;
+            font-size:{$woeic_estimass_fontsize_value} !important;
+            font-weight:{$woeic_estimass_fontweight_value} !important;
+            font-family:{$woeic_estimass_fontfamilly_value} !important;
+        }
+        .popup-container{
+            background:{$woeic_estimass_bgcolor5_value} !important;
+            box-shadow:{$woeic_estimass_box_shadow5_value} !important;
+            border-radius:{$woeic_estimass_radius5_value} !important;
+        }
+        ";
+        $html .= '</style>';
+        echo $html;
+    }
+  
+    public function woeic_settings_plugin_action_link($links, $file) {
+        if (plugin_basename(__FILE__) == $file) {
+            $woeic_settings_link = '<a href="' . admin_url('admin.php?page=get-woo-easy-invoice') . '" target="_blank">' . esc_html__('Settings', 'woo-easy-invoice') . '</a>';
+            array_push($links, $woeic_settings_link);
+        }
+        return $links;
+    }
+  
     public function woeic_all_assets_for_the_public(){
         wp_enqueue_script('woeic_ssprint_eeescript', plugin_dir_url(__FILE__) . '../assets/public/style.js', array('jquery'), null, true);
         wp_enqueue_script('woeic_print_script', plugin_dir_url(__FILE__) . '../assets/public/woeic-print-script.js', array('jquery'), null, true);
@@ -31,12 +121,12 @@ class ClassProdWCLSR{
     }
 
     public function woeic_thankyou_page1($order_id){
-        echo '<button id="downloadButton" onclick="openPopup()"><i class="fa-solid fa-download"></i>'.esc_html__('Download Invoice', 'woo-easy-invoice').'</button>';
+        echo '<button id="downloadButton" onclick="openPopup()"><i class="fa-solid fa-download"></i>'.esc_html(get_option( 'woeic-estimass-presets', 'Download Invoice' )).'</button>';
         echo '<div id="popup" class="popup-container">';
         echo '<span class="close" onclick="closePopup()">&times;</span>';
             echo '<div class="popup-content">';
                 echo '<div class="print-btn">';
-                    echo '<button id="printButton"><i class="fa-solid fa-print"></i>'.esc_html__('Print', 'woo-easy-invoice').'</button>';
+                    echo '<button id="printButton"><i class="fa-solid fa-print"></i>'.esc_html(get_option( 'woeic-top-title-check', 'Print')).'</button>';
                 echo '</div>';
                 echo '<div class="woeic_print_this">';
                     $order = wc_get_order($order_id);
@@ -83,7 +173,7 @@ class ClassProdWCLSR{
                     // Output the HTML structure
                     echo '<div style="font-family: \'Arial\', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; max-width: 800px; margin: 20px auto; background-color: #fff; padding: 20px;">';
                     echo '<div style="text-align: center; padding-bottom: 20px; border-bottom: 2px solid #ccc;">';
-                    // echo '<img src="'.get_site_icon_url().'" alt="Logo" style="max-width: 100px; height: auto;">';
+                    echo !empty(get_option( 'woeic-checkout-page-check'))?'<img src="'.get_option( 'woeic-checkout-page-check', plugin_dir_url( __FILE__ ) . '../assets/public/Bwb.png' ).'" alt="Logo" style="max-width: 200px; height: auto;">':esc_html('Logo');
                     echo '<div style="font-size: 24px; font-weight: bold; margin-top: 10px;">'.$site_title.'</div>';
                     echo '</div>';
                     echo '<div style="margin-top: 20px; display: flex;">';
@@ -129,8 +219,8 @@ class ClassProdWCLSR{
                     echo $order->get_payment_method_title();
                     // Signature
                     echo '<div style="margin-top: 100px; display: flex; justify-content: space-between;">';
-                    echo '<div style="font-weight: bold;">'.esc_html__('Customer\'s Signature', 'woo-easy-invoice').'</div>';
-                    echo '<div style="font-weight: bold;">'.esc_html__('Authorized Signature', 'woo-easy-invoice').'</div>';
+                    echo '<div style="font-weight: bold;">'.esc_html(get_option( 'woeic-custmr-sig', 'Customer\'s Signature' )).'</div>';
+                    echo '<div style="font-weight: bold;">'.esc_html(get_option( 'woeic-auth-sig', 'Authorized Signature' )).'</div>';
                     echo '</div>';
                     echo '</div>';
                 echo '</div>';
@@ -152,7 +242,11 @@ class ClassProdWCLSR{
         add_action('woocommerce_thankyou', [$this, 'woeic_thankyou_page']);
         add_action('woocommerce_view_order', [$this, 'woeic_view_order_page_content']);
         // Plugins
+        add_action('admin_enqueue_scripts', [$this, 'woeic_all_assets_for_the_admin']);
+        add_action('admin_menu', [$this,'woeic_admin_menu_test']);
         add_action('wp_enqueue_scripts', [$this, 'woeic_all_assets_for_the_public']);
+        add_filter( 'plugin_action_links', [$this,'woeic_settings_plugin_action_link'], 10, 2 );
+        add_action('wp_head', [$this, 'woeic_taxoes_styles'],99);
     }
 }
 
