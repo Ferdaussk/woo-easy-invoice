@@ -7,7 +7,19 @@ a{
 .admin-panel {
 padding: 20px;
 }
-
+.woeic-selected-logo img {
+  width: 100px;
+  padding-top: 15px;
+}
+a#upload_image_button {
+  background: #00cec9;
+  border: 1px solid #808780;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 5px 40px;
+  border-radius: 6px;
+}
 .header {
 display: flex;
 justify-content: space-between;
@@ -27,9 +39,9 @@ background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
-.wp-core-ui .button-primary {
+.woeic-save-button .button{
 padding: 8px 12px;
-background-color: #db7913;
+background-color: #00b894;
 color: #ffffff;
 border: none;
 cursor: pointer;
@@ -37,9 +49,9 @@ font-weight: 700;
 font-size: 15px;
 border-radius: 6px;
 }
-.wp-core-ui .button-primary:hover, .wp-core-ui .button-primary:focus {
+.woeic-save-button .button:hover, .woeic-save-button .button:focus {
 padding: 8px 12px;
-background-color: #db7913;
+background-color: #00b894;
 color: #ffffff;
 border: none;
 cursor: pointer;
@@ -47,6 +59,9 @@ font-weight: 700;
 font-size: 15px;
 border: none;
 border-radius: 6px;
+}
+.media-frame-toolbar .media-toolbar{
+  border-top: none;
 }
 p.submit{
   margin-top: 0;

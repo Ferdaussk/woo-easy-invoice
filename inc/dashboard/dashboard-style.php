@@ -69,43 +69,65 @@ $all_fonts = [
       <?php
 			do_settings_sections( 'woeic-plugin-main-menu' );
       ?>
-      <div class="save-button">
+      <div class="save-button woeic-save-button">
         <?php submit_button(); ?>
       </div>
     </div>
     <div class="section">
       <div class="clmn-wrap first-clm">
         <div class="select-container">
-          <label for=""><?php echo esc_html__('Download btn', 'woo-easy-invoice');?></label>
+          <label for=""><?php echo esc_html__('Download Button:-', 'woo-easy-invoice');?></label>
           <?php echo '<input type="text" name="woeic-estimass-presets" id="woeic-estimass-presets" value="'.$woeic_estimass_presets_value.'" title="Text"  placeholder="Download Invoice">';?>
         </div>
         <div class="list-container">
-          <label class="qape_title"><?php echo esc_html__('Print btn', 'wproduct-estimated-shipping-date'); ?></label>
+          <label class="qape_title"><?php echo esc_html__('Print Button:-', 'woo-easy-invoice'); ?></label>
           <?php echo '<input type="text" name="woeic-top-title-check" id="woeic-top-title-check" value="'.$woeic_top_title_check_check.'" title="Text"  placeholder="Print Invoice">';?>
         </div>
         <div class="list-container">
-          <label class="qape_title"><?php echo esc_html__('Invoice Logo', 'wproduct-estimated-shipping-date'); ?></label>
-          <?php echo '<input type="text" name="woeic-checkout-page-check" id="woeic-top-title-check" value="'.$woeic_checkout_page_check.'" title="Text"  placeholder="'.plugin_dir_url( __FILE__ ) . '../../assets/public/Bwb.png'.'">';?>
+          <label class="qape_title"><?php echo esc_html__('Invoice Logo:-', 'woo-easy-invoice'); ?></label>
+          <?php $image_url = $woeic_checkout_page_check; ?>
+          <input type="hidden" name="woeic-checkout-page-check" id="woeic-checkout-page-check" value="<?php echo esc_attr($image_url); ?>" />
+          <a href="#" class="button" id="upload_image_button"><?php echo empty($image_url) ? esc_html__('Upload Logo', 'woo-easy-invoice') : esc_html__('Change Image', 'woo-easy-invoice'); ?></a>
+          <div class="woeic-selected-logo">
+            <img src="<?php echo $image_url; ?>" style="max-width: 100%; height: auto;" />
+          </div>
         </div>
+
         <div class="list-container">
-          <label class="qape_title"><?php echo esc_html__('Customer\'s Signature', 'wproduct-estimated-shipping-date'); ?></label>
+          <label class="qape_title"><?php echo esc_html__('Customer\'s Signature:-', 'woo-easy-invoice'); ?></label>
           <?php echo '<input type="text" name="woeic-custmr-sig" id="woeic-top-title-check" value="'.$woeic_custmr_sig.'" title="Text"  placeholder="Customer\'s Signature">';?>
         </div>
         <div class="list-container">
-          <label class="qape_title"><?php echo esc_html__('Authorized Signature', 'wproduct-estimated-shipping-date'); ?></label>
+          <label class="qape_title"><?php echo esc_html__('Authorized Signature:-', 'woo-easy-invoice'); ?></label>
           <?php echo '<input type="text" name="woeic-auth-sig" id="woeic-top-title-check" value="'.$woeic_auth_sig.'" title="Text"  placeholder="Authorized Signature">';?>
         </div>
       </div>
       <div class="clmn-wrap secound-clm">
         <div class="control_row">
           <label for="" class="woeic_style_title"><?php echo esc_html__('Download Invoice', 'woo-easy-invoice');?></label>
-          <div class="color-control woeic-style-style">
+          <div class="color-control woeic-style-style demoPanel" id="cpb" style="width: 170px">
             <label for=""><?php echo esc_html__('Color', 'woo-easy-invoice');?></label>
-            <?php echo '<input type="text" class="color-field" data-wheelcolorpicker data-wcp-format="rgba" name="woeic-estimass-color" id="woeic-estimass-text" value="'.$woeic_estimass_color_value.'" title="Text">';?>
+            <!-- <div id="cpb" class="demoPanel" style="width: 170px"> -->
+            <?php echo '<input name="woeic-estimass-color" id="cp1" value="'.$woeic_estimass_color_value.'" title="Text">';?>
+            <!-- </div> -->
+            <!-- <div id="cpb" class="demoPanel" style="width: 170px">
+              <input id="cp1" />
+            </div> -->
+            <?php
+            echo '<script>';
+              echo 'var woeic_estimass_color_value = "' . $woeic_estimass_color_value . '";';
+            echo '</script>';
+            ?>
           </div>
-          <div class="color-control woeic-style-style">
-            <label for=""><?php echo esc_html__('BG Color', 'woo-easy-invoice');?></label>
-            <?php echo '<input type="text" class="color-field" data-wheelcolorpicker data-wcp-format="rgba" name="woeic-estimass-bgcolor" id="woeic-estimass-text" value="'.$woeic_estimass_bgcolor_value.'" title="Text">';?>
+          <?php if(!empty($woeic_estimass_color_value)):echo "<style>.woeic-estimass-color{background:$woeic_estimass_color_value !important;}</style>";endif;?>
+          <div class="color-control woeic-style-style demoPanel" id="cpb" style="width: 170px">
+            <label for=""><?php echo esc_html__('Background Color', 'woo-easy-invoice');?></label>
+            <?php echo '<input name="woeic-estimass-bgcolor" id="cp2" value="'.$woeic_estimass_bgcolor_value.'" title="Text">';?>
+            <?php
+            echo '<script>';
+              echo 'var woeic_estimass_color_value2 = "' . $woeic_estimass_bgcolor_value . '";';
+            echo '</script>';
+            ?>
           </div>
           <div class="text-control woeic-style-style">
             <label for=""><?php echo esc_html__('Font size', 'woo-easy-invoice');?></label>
@@ -127,10 +149,15 @@ $all_fonts = [
           </div>
         </div>
         <div class="control_row">
-        <label for="" class="woeic_style_title"><?php echo esc_html__('Popup wrap', 'woo-easy-invoice');?></label>
-          <div class="color-control woeic-style-style">
-            <label for=""><?php echo esc_html__('BG', 'woo-easy-invoice');?></label>
-            <?php echo '<input type="text" class="color-field" data-wheelcolorpicker data-wcp-format="rgba"  name="woeic-estimass-bgcolor5" id="woeic-estimass-text" value="'.$woeic_estimass_bgcolor5_value.'" title="Text">';?>
+        <label for="" class="woeic_style_title"><?php echo esc_html__('Popup Wrap', 'woo-easy-invoice');?></label>
+          <div class="color-control woeic-style-style demoPanel" id="cpb" style="width: 170px">
+            <label for=""><?php echo esc_html__('Background', 'woo-easy-invoice');?></label>
+            <?php echo '<input name="woeic-estimass-bgcolor5" id="cp3" value="'.$woeic_estimass_bgcolor5_value.'" title="Text">';?>
+            <?php
+            echo '<script>';
+              echo 'var woeic_estimass_color_value3 = "' . $woeic_estimass_bgcolor5_value . '";';
+            echo '</script>';
+            ?>
           </div>
           <div class="text-control woeic-style-style">
             <label for=""><?php echo esc_html__('Wrap Shadow', 'woo-easy-invoice');?></label>
@@ -143,13 +170,23 @@ $all_fonts = [
         </div>
         <div class="control_row">
           <label for="" class="woeic_style_title"><?php echo esc_html__('Print Invoice', 'woo-easy-invoice');?></label>
-          <div class="color-control woeic-style-style">
+          <div class="color-control woeic-style-style demoPanel" id="cpb" style="width: 170px">
             <label for=""><?php echo esc_html__('Color', 'woo-easy-invoice');?></label>
-            <?php echo '<input type="text" class="color-field" data-wheelcolorpicker data-wcp-format="rgba" name="woeic-estimdate-color" id="woeic-estimdate-text" value="'.$woeic_estimdate_color_value.'" title="Text">';?>
+            <?php echo '<input name="woeic-estimdate-color" id="cp4" value="'.$woeic_estimdate_color_value.'" title="Text">';?>
+            <?php
+            echo '<script>';
+              echo 'var woeic_estimass_color_value4 = "' . $woeic_estimdate_color_value . '";';
+            echo '</script>';
+            ?>
           </div>
-          <div class="color-control woeic-style-style">
+          <div class="color-control woeic-style-style demoPanel" id="cpb" style="width: 170px">
             <label for=""><?php echo esc_html__('Color', 'woo-easy-invoice');?></label>
-            <?php echo '<input type="text" class="color-field" data-wheelcolorpicker data-wcp-format="rgba" name="woeic-estimdate-bgcolor" id="woeic-estimdate-text" value="'.$woeic_estimdate_bgcolor_value.'" title="Text">';?>
+            <?php echo '<input name="woeic-estimdate-bgcolor" id="cp5" value="'.$woeic_estimdate_bgcolor_value.'" title="Text">';?>
+            <?php
+            echo '<script>';
+              echo 'var woeic_estimass_color_value5 = "' . $woeic_estimdate_bgcolor_value . '";';
+            echo '</script>';
+            ?>
           </div>
           <div class="text-control woeic-style-style">
             <label for=""><?php echo esc_html__('Font size', 'woo-easy-invoice');?></label>
@@ -174,3 +211,4 @@ $all_fonts = [
     </div>
   </form>
 </div>
+<!-- in Invoice Logo input replace the input with wp image upload button -->

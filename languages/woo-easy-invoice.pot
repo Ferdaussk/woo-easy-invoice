@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WooEasy Invoice\n"
-"POT-Creation-Date: 2023-12-04 12:32+0600\n"
-"PO-Revision-Date: 2023-12-04 12:31+0600\n"
+"Project-Id-Version: Woo Easy Invoice\n"
+"POT-Creation-Date: 2024-03-21 17:27+0600\n"
+"PO-Revision-Date: 2024-03-21 17:27+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: woo-easy-invoice-copy.php\n"
+"X-Poedit-WPHeader: woo-easy-invoice.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -21,73 +21,221 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: inc/prod-ready.php:34
+#: inc/dashboard/dashboard-style.php:39
+msgid "Default"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:40
+msgid "Arial"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:41
+msgid "Helvetica"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:42
+msgid "Georgia"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:43
+msgid "Fantasy"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:44
+msgid "Tahoma"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:45
+msgid "Courier New"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:46
+msgid "Palatino"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:47
+msgid "Garamond"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:48
+msgid "Century Gothic"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:49
+msgid "Futura"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:50
+msgid "Roboto"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:51
+msgid "Open Sans"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:52
+msgid "Lato"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:53
+msgid "Montserrat"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:54
+msgid "Raleway"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:55
+msgid "Poppins"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:56
+msgid "Nunito"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:57
+msgid "Playfair Display"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:58
+msgid "Quicksand"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:68
+msgid "BEST WP DEVELOPER"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:79
+msgid "Download btn:-"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:83
+msgid "Print btn:-"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:87
+msgid "Invoice Logo:-"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:90
+msgid "Upload Logo"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:90
+msgid "Change Image"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:124
+msgid "Customer's Signature:-"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:128
+msgid "Authorized Signature:-"
+msgstr ""
+
+#: inc/dashboard/dashboard-style.php:134
 msgid "Download Invoice"
 msgstr ""
 
-#: inc/prod-ready.php:38
-msgid "Print"
+#: inc/dashboard/dashboard-style.php:136 inc/dashboard/dashboard-style.php:201
+#: inc/dashboard/dashboard-style.php:210
+msgid "Color"
 msgstr ""
 
-#: inc/prod-ready.php:89
-msgid "Billing address:"
+#: inc/dashboard/dashboard-style.php:151
+msgid "BG Color"
 msgstr ""
 
-#: inc/prod-ready.php:92 inc/prod-ready.php:97
-msgid "Email: "
+#: inc/dashboard/dashboard-style.php:160 inc/dashboard/dashboard-style.php:219
+msgid "Font size"
 msgstr ""
 
-#: inc/prod-ready.php:93
-msgid "Phone: "
+#: inc/dashboard/dashboard-style.php:164 inc/dashboard/dashboard-style.php:223
+msgid "Font weight"
 msgstr ""
 
-#: inc/prod-ready.php:94
-msgid "From:"
+#: inc/dashboard/dashboard-style.php:168 inc/dashboard/dashboard-style.php:227
+msgid "Font family"
 msgstr ""
 
-#: inc/prod-ready.php:100
-msgid "Order No:"
+#: inc/dashboard/dashboard-style.php:179
+msgid "Popup wrap"
 msgstr ""
 
-#: inc/prod-ready.php:101
-msgid "Date:"
+#: inc/dashboard/dashboard-style.php:181
+msgid "BG"
 msgstr ""
 
-#: inc/prod-ready.php:107
-msgid "Product No"
+#: inc/dashboard/dashboard-style.php:190
+msgid "Wrap Shadow"
 msgstr ""
 
-#: inc/prod-ready.php:108
-msgid "Name"
+#: inc/dashboard/dashboard-style.php:194
+msgid "Border Radius"
 msgstr ""
 
-#: inc/prod-ready.php:109
-msgid "Quantity"
-msgstr ""
-
-#: inc/prod-ready.php:110
-msgid "Unit Price"
-msgstr ""
-
-#: inc/prod-ready.php:111
-msgid "Total Price"
-msgstr ""
-
-#: inc/prod-ready.php:125
-msgid "Total Amount:"
-msgstr ""
-
-#: inc/prod-ready.php:131
-msgid "Customer's Signature"
-msgstr ""
-
-#: inc/prod-ready.php:132
-msgid "Authorized Signature"
+#: inc/dashboard/dashboard-style.php:199
+msgid "Print Invoice"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: inc/requires-check.php:18 inc/requires-check.php:25
-#: woo-easy-invoice-copy.php:54
+#: inc/prod-ready.php:36 inc/prod-ready.php:37
+msgid "Woo Easy Invoice"
+msgstr ""
+
+#: inc/prod-ready.php:102
+msgid "Settings"
+msgstr ""
+
+#: inc/prod-ready.php:181
+msgid "Billing address:"
+msgstr ""
+
+#: inc/prod-ready.php:184 inc/prod-ready.php:189
+msgid "Email: "
+msgstr ""
+
+#: inc/prod-ready.php:185
+msgid "Phone: "
+msgstr ""
+
+#: inc/prod-ready.php:186
+msgid "From:"
+msgstr ""
+
+#: inc/prod-ready.php:192
+msgid "Order No:"
+msgstr ""
+
+#: inc/prod-ready.php:193
+msgid "Date:"
+msgstr ""
+
+#: inc/prod-ready.php:199
+msgid "Product No"
+msgstr ""
+
+#: inc/prod-ready.php:200
+msgid "Name"
+msgstr ""
+
+#: inc/prod-ready.php:201
+msgid "Quantity"
+msgstr ""
+
+#: inc/prod-ready.php:202
+msgid "Unit Price"
+msgstr ""
+
+#: inc/prod-ready.php:203
+msgid "Total Price"
+msgstr ""
+
+#: inc/prod-ready.php:217
+msgid "Total Amount:"
+msgstr ""
+
+#: inc/requires-check.php:18 inc/requires-check.php:25 woo-easy-invoice.php:58
 msgid "WooEasy Invoice"
 msgstr ""
 
@@ -107,16 +255,16 @@ msgstr ""
 msgid "Install WooCommerce"
 msgstr ""
 
-#: woo-easy-invoice-copy.php:53
+#: woo-easy-invoice.php:57
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
 
-#: woo-easy-invoice-copy.php:55
+#: woo-easy-invoice.php:59
 msgid "PHP"
 msgstr ""
 
-#: woo-easy-invoice-copy.php:58
+#: woo-easy-invoice.php:62
 #, php-format
 msgid "%1$s"
 msgstr ""
@@ -127,8 +275,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Effortless invoice printing on WooCommerce thank-you pages for simplified "
-"order tracking."
+"Effortless invoice printing on WooCommerce my-account and thank-you pages  "
+"for simplified order tracking."
 msgstr ""
 
 #. Author of the plugin/theme
